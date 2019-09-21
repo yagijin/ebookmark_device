@@ -1,6 +1,3 @@
-/* RFIDタグの固有識別子:04 F3 63 BA 2C 54 80 
-                     04 243 99 186 44 84 128*/
-
 #include <SPI.h>
 #include <MFRC522.h>
 
@@ -69,7 +66,7 @@ void loop() {
 	Dump debug info about the card; PICC_HaltA() is automatically called
 	mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
   */
-
+  //mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
   //アンテナのオフ
   mfrc522.PCD_AntennaOff();
   
@@ -80,6 +77,10 @@ void loop() {
     }
   }
   */
+  
+  if(!trigger){
+    delay(300);
+  }
   
   //アンテナのオン
   mfrc522.PCD_AntennaOn();
